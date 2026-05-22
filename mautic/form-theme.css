@@ -5,7 +5,13 @@
 
    Applies to: form 2 (cubbiecontactformtest)
    Reference via @import inside the form's HTML Area "custom css" field.
-   Last updated: 2026-05-22 (revision 5)
+   Last updated: 2026-05-22 (revision 6)
+
+   Revision 6: Removed @media single-column breakpoint.
+   Form now stays 2-column at all widths to match the existing Wix
+   native form's behavior. Inputs shrink proportionally with the
+   iframe width. Side benefit: 2-column layout fits in the original
+   343px iframe height (form is ~340px tall in 2-col vs ~494px in 1-col).
    ================================================================= */
 
 html, body {
@@ -33,7 +39,9 @@ html, body {
   display: none !important;
 }
 
-/* 2-column grid layout using stable row IDs */
+/* 2-column grid layout using stable row IDs.
+   No mobile breakpoint — stays 2-column at all widths to match the
+   existing Wix native form's behavior. */
 #mauticform_wrapper_cubbiecontactformtest .mauticform-page-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -177,22 +185,4 @@ html, body {
 #mauticform_wrapper_cubbiecontactformtest .mauticform-field-hidden,
 #mauticform_wrapper_cubbiecontactformtest .mauticform-hidden {
   display: none !important;
-}
-
-/* Tablet / mobile — single column at 640px and below
-   (raised from 500px to fix tablet scroll issue) */
-@media (max-width: 640px) {
-  #mauticform_wrapper_cubbiecontactformtest .mauticform-page-wrapper {
-    grid-template-columns: 1fr;
-  }
-  #mauticform_cubbiecontactformtest_first_name,
-  #mauticform_cubbiecontactformtest_last_name,
-  #mauticform_cubbiecontactformtest_organisation,
-  #mauticform_cubbiecontactformtest_job_title,
-  #mauticform_cubbiecontactformtest_consent,
-  #mauticform_cubbiecontactformtest_submit {
-    grid-column: 1 / -1;
-    justify-self: stretch;
-  }
-  #mauticform_wrapper_cubbiecontactformtest .mauticform-button { width: 100%; }
 }
