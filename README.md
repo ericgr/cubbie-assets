@@ -19,7 +19,7 @@ Anything sensitive (workflow JSONs, configs, internal docs) lives in a separate 
 Each Cubbie Mautic form has an HTML Area field at order 0 (label: "custom css", show label: no, save result: no). The field's content is a one-liner:
 
 ```html
-<style>@import url('https://cdn.jsdelivr.net/gh/ericgr/cubbie-assets@main/mautic/form-theme.css?v=N');</style>
+<style>@import url('https://cdn.jsdelivr.net/gh/KeystoneMarTech/cubbie-assets@main/mautic/form-theme.css?v=N');</style>
 ```
 
 The `?v=N` is a cache-buster. Bump it after each CSS update to force browsers to fetch fresh.
@@ -31,7 +31,7 @@ Full architecture, design decisions, and lessons learned: see the companion vaul
 1. Edit `mautic/form-theme.css` here on github.com (pencil icon), commit on `main`
 2. Purge jsDelivr cache:
    ```bash
-   curl -s "https://purge.jsdelivr.net/gh/ericgr/cubbie-assets@main/mautic/form-theme.css"
+   curl -s "https://purge.jsdelivr.net/gh/KeystoneMarTech/cubbie-assets@main/mautic/form-theme.css"
    ```
 3. Bump `?v=N` to `?v=N+1` in each Mautic form's HTML Area
 4. Hard refresh the embed page
